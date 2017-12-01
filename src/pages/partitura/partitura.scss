@@ -1,0 +1,43 @@
+page-partitura {
+
+}
+.scrollContainer {
+  margin: 0;
+  border: 0;
+}
+.container {
+  margin: 0;
+  border: 0;
+  background: black;
+}
+.item {
+  background: black;
+  color: white;
+
+  border: solid 1px grey;
+  border-top-style: none;
+  border-right-style: none;
+  border-left-style: none;
+  height: 140px;
+}
+.itemActive {
+  background: white;
+}
+.itemNumber {
+  color:cyan;
+}
+.itemText {
+  color:white;
+}
+
+.itemOriginalText {
+  color:#666;
+}
+
+.itemTextActive {
+  color:blue;
+}
+
+.itemOriginalTextActive {
+  color:lightblue;
+}

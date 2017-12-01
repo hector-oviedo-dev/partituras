@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<div text-center>
+  <ion-grid>
+    <ion-row>
+       <ion-col width-33 *ngFor="let lyric of traductions">
+         <button ion-button class="circleButton" (click)="onClick(lyric.id)">{{lyric.name}}</button>
+         <button ion-button class="circleButton" (click)="onEmitClick(lyric.id)">{{lyric.name}} <br>Emit</button>
+       </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+
+</ion-content>
+
+<ion-footer>
+</ion-footer>
