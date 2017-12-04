@@ -11,7 +11,6 @@
     <ion-row>
        <ion-col width-33 *ngFor="let lyric of traductions">
          <button ion-button class="circleButton" (click)="onClick(lyric.id)">{{lyric.name}}</button>
-         <button ion-button class="circleButton" (click)="onEmitClick(lyric.id)">{{lyric.name}} <br>Emit</button>
        </ion-col>
     </ion-row>
   </ion-grid>

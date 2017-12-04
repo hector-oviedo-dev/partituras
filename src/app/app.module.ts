@@ -9,7 +9,13 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { PartituraPage } from '../pages/partitura/partitura';
 import { EmitPage } from '../pages/emit/emit';
+import { OperadetailsemitPage } from '../pages/operadetailsemit/operadetailsemit';
 import { OperaPage } from '../pages/opera/opera';
+
+import { AdminPage } from '../pages/admin/admin';
+import { OperasemitPage } from '../pages/operasemit/operasemit';
+import { OperasPage } from '../pages/operas/operas';
+import { UploadPage } from '../pages/upload/upload';
 import { ServicesProvider } from '../providers/services/services';
 
 @NgModule({
@@ -18,6 +24,11 @@ import { ServicesProvider } from '../providers/services/services';
     HomePage,
     EmitPage,
     OperaPage,
+    AdminPage,
+    UploadPage,
+    OperasemitPage,
+    OperasPage,
+    OperadetailsemitPage,
     PartituraPage
   ],
   imports: [
@@ -31,6 +42,11 @@ import { ServicesProvider } from '../providers/services/services';
     HomePage,
     EmitPage,
     OperaPage,
+    AdminPage,
+    UploadPage,
+    OperasemitPage,
+    OperasPage,
+    OperadetailsemitPage,
     PartituraPage
   ],
   providers: [

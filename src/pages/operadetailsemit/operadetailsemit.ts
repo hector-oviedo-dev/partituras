@@ -4,9 +4,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PartituraPage } from '../../pages/partitura/partitura';
 import { EmitPage } from '../../pages/emit/emit';
 import { ServicesProvider } from '../../providers/services/services';
-
 /**
- * Generated class for the OperaPage page.
+ * Generated class for the OperadetailsemitPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -14,10 +13,10 @@ import { ServicesProvider } from '../../providers/services/services';
 
 @IonicPage()
 @Component({
-  selector: 'page-opera',
-  templateUrl: 'opera.html',
+  selector: 'page-operadetailsemit',
+  templateUrl: 'operadetailsemit.html',
 })
-export class OperaPage {
+export class OperadetailsemitPage {
   public title:string;
   private traductions:Array<language> = [];
 
@@ -25,7 +24,10 @@ export class OperaPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private http:HttpClient, private services:ServicesProvider) {
 
     this.services.disconnect();
-    this.http.get(this.services.getAPI_URL() + '/api/download').subscribe(
+
+    this.title = this.navParams.get('name');
+
+    this.http.get(this.services.getAPI_URL() + '/api/download?name=' + this.title).subscribe(
       data => { this.processResult(data); },
       (e:HttpErrorResponse) => {
         console.log("ERROR: " + e);
@@ -33,7 +35,6 @@ export class OperaPage {
     );
   }
   public processResult(data) {
-    this.title = "Carmina Burana - Carl Orff";
     for (let i = 0; i < data.length; i++) {
       if (data[i].name == "original") for (let j = 0; j < data[i].data.length; j++) this.original.push(data[i].data[j]);
       else {
@@ -52,7 +53,7 @@ export class OperaPage {
       name:this.title,
       data:this.traductions[id]
     }
-    this.navCtrl.push(PartituraPage,data)
+    this.navCtrl.push(EmitPage,data)
   }
 }
 interface language {
