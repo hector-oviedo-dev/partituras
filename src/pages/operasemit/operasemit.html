@@ -15,10 +15,23 @@
 
 <ion-content padding>
   <div text-center>
-    <ion-grid>
+    <ion-grid *ngFor="let opera of operas">
+
       <ion-row>
-         <ion-col width-33 *ngFor="let opera of operas">
-           <button ion-button class="circleButton" (click)="onClick(opera)">{{opera}}</button>
+         <ion-col>
+           <h3>{{opera}}</h3>
+         </ion-col>
+      </ion-row>
+
+      <ion-row>
+         <ion-col>
+           <button ion-button (click)="onClick(opera)">Comenzar</button>
+         </ion-col>
+      </ion-row>
+
+      <ion-row>
+         <ion-col>
+           <button ion-button (click)="onClickDelete(opera)">Eliminar</button>
          </ion-col>
       </ion-row>
     </ion-grid>

@@ -11,11 +11,11 @@ import 'rxjs/add/operator/toPromise';
 */
 @Injectable()
 export class ServicesProvider {
-  //public WS_URL:string = "ws://red-partitures.cloudno.de";
-  //public API_URL:string = "http://red-partitures.cloudno.de";
+  public WS_URL:string = "ws://red-partitures.cloudno.de";
+  public API_URL:string = "http://red-partitures.cloudno.de";
 
-  public WS_URL:string = "ws:/localhost:8080";
-  public API_URL:string = "http://localhost:8080";
+  //public WS_URL:string = "ws:/localhost:8080";
+  //public API_URL:string = "http://localhost:8080";
 
   private ws:WebSocket;
 
@@ -29,7 +29,7 @@ export class ServicesProvider {
     return this.API_URL;
   }
   public async uploadFile(file: File): Promise<void> {
-    
+
     // headers
     const headers = new HttpHeaders()
       .append('Content-Type', 'multipart/form-data');

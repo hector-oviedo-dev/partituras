@@ -25,7 +25,9 @@ export class OperaPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private http:HttpClient, private services:ServicesProvider) {
 
     this.services.disconnect();
-    this.http.get(this.services.getAPI_URL() + '/api/download').subscribe(
+    this.title = this.navParams.get('name');
+
+    this.http.get(this.services.getAPI_URL() + '/api/download?name=' + this.title).subscribe(
       data => { this.processResult(data); },
       (e:HttpErrorResponse) => {
         console.log("ERROR: " + e);
@@ -33,7 +35,7 @@ export class OperaPage {
     );
   }
   public processResult(data) {
-    this.title = "Carmina Burana - Carl Orff";
+    
     for (let i = 0; i < data.length; i++) {
       if (data[i].name == "original") for (let j = 0; j < data[i].data.length; j++) this.original.push(data[i].data[j]);
       else {

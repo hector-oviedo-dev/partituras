@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PartituraPage } from '../../pages/partitura/partitura';
 import { OperadetailsemitPage } from '../../pages/operadetailsemit/operadetailsemit';
@@ -42,5 +42,20 @@ export class OperasemitPage {
     }
     this.navCtrl.push(OperadetailsemitPage,data)
   }
+  public onClickDelete(name) {
 
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json; charset=utf-8');
+    headers.append('Accept', 'application/json');
+
+    let bodyTMP = { name: name };
+
+    //this.services.uploadFile(file);
+    this.http.post(this.services.getAPI_URL() + '/api/erase', bodyTMP).subscribe(data => {
+      // Read the result field from the JSON response.
+      console.log(data);
+    });
+
+
+  }
 }
